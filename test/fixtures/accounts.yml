@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: MyString
+  string: MyString
+  account_type: MyString
+  string: MyString
+  open_date: MyString
+  date: MyString
+  customer_id: MyString
+  string: MyString
+  customer_name: MyString
+  branch: MyString
+  string: MyString
+  minor_indicator: MyString
+
+two:
+  account_id: MyString
+  string: MyString
+  account_type: MyString
+  string: MyString
+  open_date: MyString
+  date: MyString
+  customer_id: MyString
+  string: MyString
+  customer_name: MyString
+  branch: MyString
+  string: MyString
+  minor_indicator: MyString
