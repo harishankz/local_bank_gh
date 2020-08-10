@@ -36,18 +36,18 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency 'rails', '~> 6.0', '6.0.0'
+  spec.add_runtime_dependency 'activerecord', '~> 6.0', '6.0.0'
+  spec.add_runtime_dependency 'mysql2', '~> 0.5', ">= 0.5.1"
+
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "cancan", "~> 1.0"
+  spec.add_development_dependency 'cancancan', '~> 3.1'
   spec.add_development_dependency 'shoulda', '~> 3.5.0', ">= 3.5"
   spec.add_development_dependency 'pry', '~> 0.11', ">= 0.11.3"
 
   spec.test_files = Dir["spec/**/*"]
-
-  spec.add_runtime_dependency 'rails', '~> 5.2', '5.2.2'
-  spec.add_runtime_dependency 'activerecord', '~> 5.2', '5.2.2'
-  spec.add_runtime_dependency 'mysql2', '~> 0.5', ">= 0.5.1"
 
   spec.required_ruby_version = ">= 2.6.3"
 end

@@ -11,7 +11,7 @@ gem 'mysql2'
 
 gem 'puma'
 gem 'devise'
-gem "cancan"
+gem 'cancancan', '~> 3.1'
 
 # Test Driven Development
 group :test do

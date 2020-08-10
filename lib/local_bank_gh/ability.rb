@@ -30,15 +30,21 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
     #
     def initialize(user)
-     user ||= User.new # in case of guest
-     send(user.role.role_name.downcase)
+      return unless user.present?
+     send(user.role.role_name.downcase, user)
     end
 
-    def manager
-      can :manage, Account, User
+    #
+    # manager
+    # @param {User} user
+    def manager(user)
+      can :manage, :all, user_id: user.id
     end
 
-    def customer
+    #
+    # customer
+    # @param {User} user
+    def customer(user)
       can :read, User
     end
   end
