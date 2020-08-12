@@ -46,6 +46,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'cancancan', '~> 3.1'
   spec.add_development_dependency 'shoulda', '~> 3.5.0', ">= 3.5"
   spec.add_development_dependency 'pry', '~> 0.11', ">= 0.11.3"
+  spec.add_development_dependency 'httpclient', '~>2.8'
 
   spec.test_files = Dir["spec/**/*"]
 

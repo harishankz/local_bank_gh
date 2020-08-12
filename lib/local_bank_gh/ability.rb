@@ -31,21 +31,21 @@ class Ability
     #
     def initialize(user)
       return unless user.present?
-     send(user.role.role_name.downcase, user)
+      send(user.role.role_name.downcase, user)
     end
 
     #
     # manager
     # @param {User} user
     def manager(user)
-      can :manage, :all, user_id: user.id
+      can :manage, :all
     end
 
     #
     # customer
     # @param {User} user
     def customer(user)
-      can :read, User
+      can :read, User, user_id: user.id
     end
   end
 end

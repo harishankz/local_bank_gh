@@ -1,3 +1,4 @@
+require 'ruby_bank'
 require "local_bank_gh/version"
 require "active_record"
 require "application_record"

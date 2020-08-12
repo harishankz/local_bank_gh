@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
   belongs_to :role
 
@@ -10,8 +10,11 @@ class User < ApplicationRecord
   validates_presence_of :gender
 
   def generate_jwt
-    JWT.encode({ id: id,
+    token = JWT.encode({ id: id,
                  exp: 60.days.from_now.to_i },
                Rails.application.secrets.secret_key_base)
+    update_attribute(:token, token)
+
+    token
   end
 end

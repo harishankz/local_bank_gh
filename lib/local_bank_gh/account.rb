@@ -13,7 +13,7 @@ class Account < ApplicationRecord
   def customer_type
     return true if attribute_present?("customer_id") && role.is_a_customer_valid_role?
     return false if customer_id.blank?
-    errors.add(:account, "We cant create Account for Manager")
+    errors.add(:account, "We cant create for Manager")
     return false
   end
 
@@ -31,6 +31,6 @@ class Account < ApplicationRecord
   # set_minor_indicator
   #
   def set_minor_indicator
-    self.minor_indicator = age < 18 ? true : false
+    self.minor_indicator = age < 18 ? true : false if self.user.date_of_birth.present?
   end
 end
