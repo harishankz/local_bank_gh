@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'simplecov'
+require 'local_bank_gh'
 
 SimpleCov.start
 # Add additional requires below this line. Rails is not loaded until this point!

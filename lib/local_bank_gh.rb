@@ -13,4 +13,9 @@ module LocalBankGh
   autoload :Role, 'local_bank_gh/role'
   autoload :Account, 'local_bank_gh/account'
   autoload  :Ability, 'local_bank_gh/ability'
+
+  def self.root
+    lib_path = File.dirname(__FILE__)
+    Pathname.new(lib_path).join("..")
+  end
 end

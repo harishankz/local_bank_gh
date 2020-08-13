@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_022623) do
+ActiveRecord::Schema.define(version: 2020_08_12_173747) do
 
   create_table "accounts", primary_key: "account_id", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "account_type"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_022623) do
     t.index ["account_id", "customer_id"], name: "index_accounts_on_account_id_and_customer_id"
     t.index ["account_id", "customer_name"], name: "index_accounts_on_account_id_and_customer_name"
     t.index ["account_id"], name: "index_accounts_on_account_id"
+    t.index ["customer_id"], name: "fk_rails_990d303a5d"
   end
 
   create_table "roles", primary_key: "role_id", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_022623) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.text "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_id", "phone_number"], name: "index_users_on_user_id_and_phone_number"
@@ -58,4 +60,5 @@ ActiveRecord::Schema.define(version: 2020_08_06_022623) do
     t.index ["user_id"], name: "index_users_on_user_id"
   end
 
+  add_foreign_key "accounts", "users", column: "customer_id", primary_key: "user_id"
 end
